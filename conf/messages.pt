@@ -1,0 +1,42 @@
+# Mensagens
+
+# Mensagens globais
+global.home = Página Inicial
+global.titulo = Projetão PES II
+global.salvar = Salvar
+global.voltar = Voltar
+
+# Categorias
+categoria.titulo = Categorias
+categoria.nova = Nova categoria
+categoria.alterar = Alterar categoria
+categoria.remover = Remover categoria
+categoria.preenchaNome = Preencha o nome da categoria
+
+# Produtos
+produto.titulo = Produtos
+produto.novo = Novo produto
+produto.alterar = Alterar produto
+produto.remover = Remover produto
+produto.preenchaNome = Preencha o nome do produto
+
+# Fabricantes
+fabricante.titulo = Fabricantes
+fabricante.novo = Novo fabricante
+fabricante.alterar = Alterar fabricante
+fabricante.remover = Remover fabricante
+fabricante.preenchaNome = Preencha o nome do fabricante
+
+# Endereco
+endereco.rua = Rua
+endereco.numero = Número
+endereco.bairro = Bairro
+endereco.cep = CEP
+endereco.cidade = Cidade
+endereco.estado = Estado
+endereco.pais = País
+
+# Contato
+contato.telefone1 = Telefone
+contato.telefone2 = Telefone alternativo
+contato.email = E-mail

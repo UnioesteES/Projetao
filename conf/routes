@@ -1,0 +1,25 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+# Home page
+GET     /admin                            controllers.Application.indexAdmin
+
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file                     controllers.Assets.at(path="/public", file)
+
+# Categorias
+GET     /admin/categorias                 controllers.CategoriaCRUD.lista()
+GET     /admin/categorias/nova            controllers.CategoriaCRUD.novaCategoria()
+GET     /admin/categorias/:codigo         controllers.CategoriaCRUD.detalhar(codigo : Long)
+POST    /admin/categoria/                 controllers.CategoriaCRUD.gravar()
+POST    /admin/categorias/:codigo         controllers.CategoriaCRUD.alterar(codigo: Long)
+POST    /admin/categoria/:codigo/remover  controllers.CategoriaCRUD.remover(codigo: Long)
+
+# Fabricantes
+GET     /admin/fabricantes                 controllers.FabricanteCRUD.lista()
+GET     /admin/fabricantes/novo            controllers.FabricanteCRUD.novoFabricante()
+GET     /admin/fabricantes/:cnpj           controllers.FabricanteCRUD.detalhar(cnpj: String)
+POST    /admin/fabricantes/                controllers.FabricanteCRUD.gravar()
+POST    /admin/fabricantes/:cnpj           controllers.FabricanteCRUD.alterar(cnpj: String)
+POST    /admin/fabricantes/:cnpj/remover   controllers.FabricanteCRUD.remover(cnpj: String)

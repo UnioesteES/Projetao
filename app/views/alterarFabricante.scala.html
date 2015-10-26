@@ -1,0 +1,43 @@
+@(cnpj: String, fabricanteForm: Form[Fabricante])
+@import helper._
+@mainAdmin(Messages("fabricante.alterar")) {
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="@routes.FabricanteCRUD.lista()">@Messages("global.voltar")</a></li>
+      </ul>
+    </div>
+
+    @form(routes.FabricanteCRUD.alterar(cnpj)) {
+      <fieldset>
+          @inputText(fabricanteForm("cnpj"), '_label -> "CNPJ do fabricante")
+          @inputText(fabricanteForm("nome"), '_label -> "Nome do fabricante")
+          @inputText(fabricanteForm("telefone1"), '_label -> Messages("contato.telefone1"))
+          @inputText(fabricanteForm("telefone2"), '_label -> Messages("contato.telefone2"))
+          @inputText(fabricanteForm("email"), '_label -> Messages("contato.email"))
+          @inputText(fabricanteForm("rua"), '_label -> Messages("endereco.rua"))
+          @inputText(fabricanteForm("numero"), '_label -> Messages("endereco.numero"))
+          @inputText(fabricanteForm("bairro"), '_label -> Messages("endereco.bairro"))
+          @inputText(fabricanteForm("cep"), '_label -> Messages("endereco.cep"))
+          @inputText(fabricanteForm("cidade"), '_label -> Messages("endereco.cidade"))
+          @inputText(fabricanteForm("estado"), '_label -> Messages("endereco.estado"))
+          @inputText(fabricanteForm("pais"), '_label -> Messages("endereco.pais"))
+      </fieldset>
+
+      <div class="control-group">
+        <div class="actions">
+            <!-- Grava novo Fabricante no banco -->
+          <input type="submit" value="Gravar" class="btn btn-primary">
+
+            <!-- Volta para listagem de fabricantes -->
+          <a href="@routes.FabricanteCRUD.lista()" class="btn btn-primary">
+            Cancelar
+          </a>
+        }
+
+    @form(routes.FabricanteCRUD.remover(cnpj)) {
+      <input type="submit" value="Remover esse fabricante" class="btn alert-danger">
+      }
+  </div>
+  </div>
+}
+

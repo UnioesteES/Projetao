@@ -1,0 +1,33 @@
+@(codigo: Long, categoriaForm: Form[Categoria])
+@import helper._
+@mainAdmin(Messages("categoria.alterar")) {
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="@routes.CategoriaCRUD.lista()">@Messages("global.voltar")</a></li>
+      </ul>
+    </div>
+
+    @form(routes.CategoriaCRUD.alterar(codigo)) {
+      <fieldset>
+      @inputText(categoriaForm("nome"), '_label -> "Nome da categoria")
+      @inputText(categoriaForm("descricao"), '_label -> "Descrição da categoria", 'size -> 30, 'cols -> 10, 'rows -> 30)
+      </fieldset>
+
+      <div class="control-group">
+        <div class="actions">
+            <!-- Grava nova categoria no banco -->
+          <input type="submit" value="Gravar" class="btn btn-primary">
+
+            <!-- Volta para listagem de categorias -->
+          <a href="@routes.CategoriaCRUD.lista()" class="btn btn-primary">
+            Cancelar
+          </a>
+        }
+
+    @form(routes.CategoriaCRUD.remover(codigo)) {
+      <input type="submit" value="Remover essa categoria" class="btn alert-danger">
+      }
+  </div>
+  </div>
+}
+

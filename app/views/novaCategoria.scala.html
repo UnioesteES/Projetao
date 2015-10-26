@@ -1,0 +1,32 @@
+@(categoriaForm : Form[Categoria])
+
+@mainAdmin(Messages("categoria.nova")) {
+
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <li class="active"><a href="@routes.CategoriaCRUD.lista()">@Messages("global.voltar")</a></li>
+    </ul>
+  </div>
+  <div>
+    @helper.form(action=routes.CategoriaCRUD.gravar()) {
+      <form class="form-horizontal">
+        <fieldset>
+
+
+          <div class="control-group">
+            <div class="controls">
+              @helper.inputText(categoriaForm("nome"), '_label -> "Nome da categoria")
+              <!-- <p class="help-block">@Messages("categoria.preenchaNome")</p> -->
+              @helper.inputText(categoriaForm("descricao"), '_label -> "Descrição da categoria")
+            </div>
+          </div>
+          }
+
+    <div class="control-group">
+      <label class="control-label" for="singlebutton"></label>
+      <div class="controls">
+        <button id="singlebutton" name="singlebutton" class="btn btn-primary">@Messages("global.salvar")</button>
+      </div>
+    </div>
+
+}
