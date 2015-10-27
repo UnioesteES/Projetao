@@ -1,4 +1,5 @@
-@(produtoForm : Form[Produto])
+@(produtoForm : Form[Produto],
+  fabricantes : List[Fabricante])
 
 @mainAdmin(Messages("produto.novo")) {
 
@@ -25,6 +26,15 @@
               @helper.inputText(produtoForm("largura"), '_label -> Messages("produto.largura"))
               @helper.inputText(produtoForm("comprimento"), '_label -> Messages("produto.comprimento"))
               @helper.inputText(produtoForm("peso"), '_label -> Messages("produto.peso"))
+
+                <!-- Fabricante -->
+              @helper.select(
+              produtoForm("fabricante.codigo"),
+              options(Fabricante.options),
+              '_label -> "codigoFabricante", '_default -> "Selecione o fabricante"
+            )
+
+              </select>
             </div>
           </div>
           }

@@ -4,6 +4,9 @@ import play.db.ebean.Model;
 import javax.persistence.*;
 import play.data.validation.Constraints;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 @Entity
 public class Fabricante extends Model{
     private static final long serialVersionUID = 1L;
@@ -160,5 +163,13 @@ public class Fabricante extends Model{
 
     public void setCodigo(Long codigo) {
         this.codigo = codigo;
+    }
+
+    public static Map<Long,String> options() {
+        LinkedHashMap<Long,String> options = new LinkedHashMap<Long,String>();
+        for (Fabricante f : Fabricante.find.orderBy("nome").findList()) {
+            options.put(f.getCodigo(),f.getNome());
+        }
+        return options;
     }
 }
