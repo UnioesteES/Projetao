@@ -1,0 +1,42 @@
+@(codigo: Long, produtoForm: Form[Produto])
+@import helper._
+@mainAdmin(Messages("produto.alterar")) {
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="@routes.ProdutoCRUD.lista()">@Messages("global.voltar")</a></li>
+      </ul>
+    </div>
+
+    @form(routes.ProdutoCRUD.alterar(codigo)) {
+      <fieldset>
+          @helper.inputText(produtoForm("nome"), '_label -> Messages("produto.nome"))
+          @helper.inputText(produtoForm("codigoFabricante"), '_label -> Messages("produto.nomeFabricante"))
+          @helper.inputText(produtoForm("codigoCategoria"), '_label -> Messages("produto.nomeCategoria"))
+          @helper.inputText(produtoForm("descricao"), '_label -> Messages("produto.descricao"))
+          @helper.inputText(produtoForm("modelo"), '_label -> Messages("produto.modelo"))
+          @helper.inputText(produtoForm("preco"), '_label -> Messages("produto.preco"))
+          @helper.inputText(produtoForm("quantidade"), '_label -> Messages("produto.quantidade"))
+          @helper.inputText(produtoForm("altura"), '_label -> Messages("produto.altura"))
+          @helper.inputText(produtoForm("largura"), '_label -> Messages("produto.largura"))
+          @helper.inputText(produtoForm("comprimento"), '_label -> Messages("produto.comprimento"))
+          @helper.inputText(produtoForm("peso"), '_label -> Messages("produto.peso"))
+      </fieldset>
+
+      <div class="control-group">
+        <div class="actions">
+            <!-- Grava novo Produto no banco -->
+          <input type="submit" value="Gravar" class="btn btn-primary">
+
+            <!-- Volta para listagem de produtos -->
+          <a href="@routes.ProdutoCRUD.lista()" class="btn btn-primary">
+            Cancelar
+          </a>
+        }
+
+    @form(routes.ProdutoCRUD.remover(codigo)) {
+      <input type="submit" value="Remover esse produto" class="btn alert-danger">
+      }
+  </div>
+  </div>
+}
+

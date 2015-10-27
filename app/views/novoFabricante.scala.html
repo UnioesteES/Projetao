@@ -15,6 +15,38 @@
 
           <div class="control-group">
             <div class="controls">
+              <!-- Informações principais -->
+                <!--
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      @helper.inputText(fabricanteForm("cnpj"), '_label -> "CNPJ do fabricante")
+                    </span>
+                    <span class="input-group-addon">
+                      @helper.inputText(fabricanteForm("nome"), '_label -> "Nome do fabricante")
+                    </span>
+                  </div>
+                </div>
+              </div> -->
+
+                <!-- Informações de contato -->
+                <!--
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    @helper.inputText(fabricanteForm("telefone1"), '_label -> Messages("contato.telefone1"))
+                    </span>
+                    <span class="input-group-addon">
+                    @helper.inputText(fabricanteForm("telefone2"), '_label -> Messages("contato.telefone2"))
+                    </span>
+                    <span class="input-group-addon">
+                    @helper.inputText(fabricanteForm("email"), '_label -> Messages("contato.email"))
+                    </span>
+                  </div>
+                </div>
+              </div> -->
 
               @helper.inputText(fabricanteForm("cnpj"), '_label -> "CNPJ do fabricante")
               @helper.inputText(fabricanteForm("nome"), '_label -> "Nome do fabricante")

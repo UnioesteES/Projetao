@@ -1,11 +1,9 @@
 package controllers;
 
-import ch.qos.logback.classic.util.ContextInitializer;
 import models.Fabricante;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
-import sun.rmi.runtime.Log;
 
 import java.util.List;
 
@@ -45,30 +43,30 @@ public class FabricanteCRUD extends Controller{
     }
 
     //Exibe informações de um Fabricante
-    public static Result detalhar(String cnpj) {
+    public static Result detalhar(Long codigo) {
         Form<Fabricante> fabForm =
-                Form.form(Fabricante.class).fill(Fabricante.find.byId(cnpj));
-        return ok(views.html.alterarFabricante.render(cnpj,fabForm));
+                Form.form(Fabricante.class).fill(Fabricante.find.byId(codigo));
+        return ok(views.html.alterarFabricante.render(codigo,fabForm));
     }
 
     //Alterar as informações de um Fabricante
-    public static Result alterar(String cnpj) {
-        Form.form(Fabricante.class).fill(Fabricante.find.byId(cnpj));
+    public static Result alterar(Long codigo) {
+        Form.form(Fabricante.class).fill(Fabricante.find.byId(codigo));
         Form<Fabricante> alterarForm = Form.form(Fabricante.class).bindFromRequest();
         if (alterarForm.hasErrors()) {
             return badRequest(
-                    views.html.alterarFabricante.render(cnpj,alterarForm));
+                    views.html.alterarFabricante.render(codigo,alterarForm));
         }
-        alterarForm.get().update(cnpj);
+        alterarForm.get().update(codigo);
         flash("sucesso","Fabricante "
                 + alterarForm.get().getNome() + " alterado com sucesso");
         return redirect(routes.FabricanteCRUD.lista());
     }
 
     //Remove um Fabricante
-    public static Result remover(String cnpj) {
+    public static Result remover(Long codigo) {
         try{
-            Fabricante.find.ref(cnpj).delete();
+            Fabricante.find.ref(codigo).delete();
             flash("sucesso","Fabricante removido com sucesso");
         } catch (Exception e){
             flash("erro", play.i18n.Messages.get("global.erro"));

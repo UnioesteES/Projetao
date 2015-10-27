@@ -20,6 +20,20 @@ produto.alterar = Alterar produto
 produto.remover = Remover produto
 produto.preenchaNome = Preencha o nome do produto
 
+# Info produtos
+produto.codigo = Código do produto
+produto.nomeFabricante = Nome do fabricante
+produto.nomeCategoria = Nome da categoria
+produto.nome = Nome do produto
+produto.descricao = Descrição do produto
+produto.modelo = Modelo
+produto.preco = Preco
+produto.quantidade = Quantidade
+produto.altura = Altura
+produto.largura = Largura
+produto.comprimento = Comprimento
+produto.peso = Peso
+
 # Fabricantes
 fabricante.titulo = Fabricantes
 fabricante.novo = Novo fabricante

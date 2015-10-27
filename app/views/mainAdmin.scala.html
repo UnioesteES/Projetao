@@ -32,6 +32,8 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
+                    <a href="@routes.Application.indexAdmin()">
+                    <img src="@routes.Assets.at("images/logo.png")" height="45px"/> </a>
                     <a class="navbar-brand" href="@routes.Application.indexAdmin()">@Messages("global.titulo")</a>
                 </div>
 
@@ -158,7 +160,7 @@
                                 </li>
                                     <!-- Produto -->
                                 <li>
-                                    <a href="#">Produto</a>
+                                    <a href="@routes.ProdutoCRUD.lista()">Produto</a>
                                 </li>
                             </ul>
                         </li>

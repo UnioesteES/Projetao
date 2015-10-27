@@ -1,4 +1,4 @@
-@(cnpj: String, fabricanteForm: Form[Fabricante])
+@(codigo: Long, fabricanteForm: Form[Fabricante])
 @import helper._
 @mainAdmin(Messages("fabricante.alterar")) {
     <div class="header">
@@ -7,7 +7,7 @@
       </ul>
     </div>
 
-    @form(routes.FabricanteCRUD.alterar(cnpj)) {
+    @form(routes.FabricanteCRUD.alterar(codigo)) {
       <fieldset>
           @inputText(fabricanteForm("cnpj"), '_label -> "CNPJ do fabricante")
           @inputText(fabricanteForm("nome"), '_label -> "Nome do fabricante")
@@ -34,7 +34,7 @@
           </a>
         }
 
-    @form(routes.FabricanteCRUD.remover(cnpj)) {
+    @form(routes.FabricanteCRUD.remover(codigo)) {
       <input type="submit" value="Remover esse fabricante" class="btn alert-danger">
       }
   </div>

@@ -4,15 +4,13 @@ import play.db.ebean.Model;
 import javax.persistence.*;
 import play.data.validation.Constraints;
 
-/**
- * Created by alysson on 23/10/15.
- */
-
 @Entity
 public class Fabricante extends Model{
     private static final long serialVersionUID = 1L;
 
     @Id
+    private Long codigo;
+
     @Constraints.Required
     private String cnpj;
 
@@ -45,18 +43,18 @@ public class Fabricante extends Model{
     private String email;
 
     //Auxilia nas consultas por fabricantge
-    public static Model.Finder<String, Fabricante> find =
+    public static Model.Finder<Long, Fabricante> find =
             new Model.Finder(Long.class, Fabricante.class);
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public static Finder<String, Fabricante> getFind() {
+    public static Finder<Long, Fabricante> getFind() {
         return find;
     }
 
-    public static void setFind(Finder<String, Fabricante> find) {
+    public static void setFind(Finder<Long, Fabricante> find) {
         Fabricante.find = find;
     }
 
@@ -154,5 +152,13 @@ public class Fabricante extends Model{
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
     }
 }

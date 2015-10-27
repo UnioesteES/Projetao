@@ -40,7 +40,7 @@ public class Produto extends Model{
     private Double peso;
 
     //Auxilia nas consultas por produto
-    private static Model.Finder<Long, Produto> find =
+    public static Model.Finder<Long, Produto> find =
             new Model.Finder(Long.class, Produto.class);
 
 

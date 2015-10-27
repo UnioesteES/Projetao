@@ -27,16 +27,16 @@
       @for(fabricante <- fabricantes) {
         <tr>
             <!--Exibe informações -->
-          <th><a href="@routes.FabricanteCRUD.detalhar(fabricante.getCnpj())">
+          <th><a href="@routes.FabricanteCRUD.detalhar(fabricante.getCodigo())">
             @fabricante.getCnpj()
           </a></th>
-          <th><a href="@routes.FabricanteCRUD.detalhar(fabricante.getCnpj())">
+          <th><a href="@routes.FabricanteCRUD.detalhar(fabricante.getCodigo())">
             @fabricante.getNome()
           </a></th>
           <th>
           @fabricante.getTelefone1()
           </th>
-          <th><a href="mailto:@routes.FabricanteCRUD.detalhar(fabricante.getCnpj())">
+          <th><a href="mailto:fabricante.getEmail())">
           @fabricante.getEmail()
           </a></th>
         </tr>

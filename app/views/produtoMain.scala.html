@@ -1,0 +1,50 @@
+@(produtos: List[Produto])
+@mainAdmin(Messages("produto.titulo")) {
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <li class="active">
+        <a href="@routes.ProdutoCRUD.novoProduto()">
+        @Messages("produto.novo")
+        </a>
+      </li>
+      <li class="active"><a href="@routes.Application.indexAdmin()">@Messages("global.voltar")</a></li>
+    </ul>
+  </div>
+
+  <table class="table table-striped table-bordered" id="example"
+  cellpadding="0" cellspacing="0" border="" width="100%">
+    <thead>
+      <tr class="active">
+        <th>@Messages("produto.nome")</th>
+        <th>@Messages("produto.nomeFabricante")</th>
+        <th>@Messages("produto.nomeCategoria")</th>
+        <th>@Messages("produto.preco")</th>
+        <th>@Messages("produto.quantidade")</th>
+      </tr>
+    </thead>
+    <tfoot>
+
+        <!-- Lista todas as categorias cadastradas -->
+      @for(produto <- produtos) {
+        <tr>
+            <!--Exibe informações -->
+          <th><a href="@routes.ProdutoCRUD.detalhar(produto.getCodigo())">
+            @produto.getNome()
+          </a></th>
+          <th><a href="@routes.FabricanteCRUD.detalhar(produto.getCodigoFabricante())">
+            @produto.getCodigoFabricante()
+          </a></th>
+          <th><a href="@routes.CategoriaCRUD.detalhar(produto.getCodigoCategoria())">
+          @produto.getCodigoCategoria()
+          </a></th>
+          <th>
+          @produto.getPreco()
+          </th>
+          <th>
+            @produto.getQuantidade()
+          </th>
+        </tr>
+      }
+    </tfoot>
+  </table>
+}

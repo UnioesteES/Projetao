@@ -19,7 +19,15 @@ POST    /admin/categoria/:codigo/remover  controllers.CategoriaCRUD.remover(codi
 # Fabricantes
 GET     /admin/fabricantes                 controllers.FabricanteCRUD.lista()
 GET     /admin/fabricantes/novo            controllers.FabricanteCRUD.novoFabricante()
-GET     /admin/fabricantes/:cnpj           controllers.FabricanteCRUD.detalhar(cnpj: String)
+GET     /admin/fabricantes/:codigo           controllers.FabricanteCRUD.detalhar(codigo: Long)
 POST    /admin/fabricantes/                controllers.FabricanteCRUD.gravar()
-POST    /admin/fabricantes/:cnpj           controllers.FabricanteCRUD.alterar(cnpj: String)
-POST    /admin/fabricantes/:cnpj/remover   controllers.FabricanteCRUD.remover(cnpj: String)
+POST    /admin/fabricantes/:codigo           controllers.FabricanteCRUD.alterar(codigo: Long)
+POST    /admin/fabricantes/:codigo/remover   controllers.FabricanteCRUD.remover(codigo: Long)
+
+# Produtos
+GET     /admin/produtos                      controllers.ProdutoCRUD.lista()
+GET     /admin/produtos/novo            controllers.ProdutoCRUD.novoProduto()
+GET     /admin/produtos/:codigo           controllers.ProdutoCRUD.detalhar(codigo: Long)
+POST    /admin/produtos/                controllers.ProdutoCRUD.gravar()
+POST    /admin/produtos/:codigo           controllers.ProdutoCRUD.alterar(codigo: Long)
+POST    /admin/produtos/:codigo/remover   controllers.ProdutoCRUD.remover(codigo: Long)

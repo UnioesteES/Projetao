@@ -1,0 +1,39 @@
+@(produtoForm : Form[Produto])
+
+@mainAdmin(Messages("produto.novo")) {
+
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <li class="active"><a href="@routes.ProdutoCRUD.lista()">@Messages("global.voltar")</a></li>
+    </ul>
+  </div>
+  <div>
+    @helper.form(action=routes.ProdutoCRUD.gravar()) {
+      <form class="form-horizontal">
+        <fieldset>
+          <div class="control-group">
+            <div class="controls">
+
+              @helper.inputText(produtoForm("nome"), '_label -> Messages("produto.nome"))
+              @helper.inputText(produtoForm("codigoFabricante"), '_label -> Messages("produto.nomeFabricante"))
+              @helper.inputText(produtoForm("codigoCategoria"), '_label -> Messages("produto.nomeCategoria"))
+              @helper.inputText(produtoForm("descricao"), '_label -> Messages("produto.descricao"))
+              @helper.inputText(produtoForm("modelo"), '_label -> Messages("produto.modelo"))
+              @helper.inputText(produtoForm("preco"), '_label -> Messages("produto.preco"))
+              @helper.inputText(produtoForm("quantidade"), '_label -> Messages("produto.quantidade"))
+              @helper.inputText(produtoForm("altura"), '_label -> Messages("produto.altura"))
+              @helper.inputText(produtoForm("largura"), '_label -> Messages("produto.largura"))
+              @helper.inputText(produtoForm("comprimento"), '_label -> Messages("produto.comprimento"))
+              @helper.inputText(produtoForm("peso"), '_label -> Messages("produto.peso"))
+            </div>
+          </div>
+          }
+
+    <div class="control-group">
+      <label class="control-label" for="singlebutton"></label>
+      <div class="controls">
+        <button id="singlebutton" name="singlebutton" class="btn btn-primary">@Messages("global.salvar")</button>
+      </div>
+    </div>
+  </div>
+}

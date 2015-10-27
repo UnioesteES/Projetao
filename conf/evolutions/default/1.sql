@@ -11,7 +11,8 @@ create table categoria (
 ;
 
 create table fabricante (
-  cnpj                      varchar(255) not null,
+  codigo                    bigint not null,
+  cnpj                      varchar(255),
   nome                      varchar(255),
   rua                       varchar(255),
   numero                    integer,
@@ -23,7 +24,7 @@ create table fabricante (
   telefone1                 varchar(255),
   telefone2                 varchar(255),
   email                     varchar(255),
-  constraint pk_fabricante primary key (cnpj))
+  constraint pk_fabricante primary key (codigo))
 ;
 
 create table produto (
