@@ -4,6 +4,9 @@ import play.db.ebean.Model;
 import javax.persistence.*;
 import play.data.validation.Constraints;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 /**
  * Created by alysson on 23/10/15.
  */
@@ -45,5 +48,13 @@ public class Categoria extends Model{
 
     public void setDescricao(String descricao) {
         this.descricao = descricao;
+    }
+
+    public static Map<String,String> options() {
+        LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
+        for (Categoria c : Categoria.find.orderBy("nome").findList()) {
+            options.put(c.getCodigo()+"",c.getNome());
+        }
+        return options;
     }
 }

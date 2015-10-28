@@ -165,10 +165,10 @@ public class Fabricante extends Model{
         this.codigo = codigo;
     }
 
-    public static Map<Long,String> options() {
-        LinkedHashMap<Long,String> options = new LinkedHashMap<Long,String>();
+    public static Map<String,String> options() {
+        LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
         for (Fabricante f : Fabricante.find.orderBy("nome").findList()) {
-            options.put(f.getCodigo(),f.getNome());
+            options.put(f.getCodigo()+"",f.getNome());
         }
         return options;
     }

@@ -29,8 +29,6 @@ create table fabricante (
 
 create table produto (
   codigo                    bigint not null,
-  codigo_fabricante         bigint,
-  codigo_categoria          bigint,
   nome                      varchar(255),
   descricao                 varchar(255),
   modelo                    varchar(255),

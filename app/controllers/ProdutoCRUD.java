@@ -1,10 +1,11 @@
 package controllers;
 
+import models.Categoria;
+import models.Fabricante;
 import models.Produto;
 import play.data.Form;
 import play.mvc.Controller;
 import play.mvc.Result;
-
 import java.util.List;
 
 public class ProdutoCRUD extends Controller{
@@ -20,20 +21,25 @@ public class ProdutoCRUD extends Controller{
 
     //Efetua novo cadastro
     public static Result novoProduto() {
-        return ok(views.html.novoProduto.render(produtoForm));
+        List<Fabricante> fabricantes = Fabricante.find.findList();
+        List<Categoria> categorias = Categoria.find.findList();
+
+        return ok(views.html.novoProduto.render(produtoForm, fabricantes, categorias));
     }
 
-    //Grava nova Produto no banco
+    //Grava novo Produto no banco
     public static Result gravar() {
         Form<Produto> form = produtoForm.bindFromRequest();
+        List<Fabricante> fabricantes = Fabricante.find.findList();
+        List<Categoria> categorias = Categoria.find.findList();
 
         if (form.hasErrors()) {
             flash("erro","Foram identificados problemas no cadastro");
-            return ok(views.html.novoProduto.render(produtoForm));
+            return ok(views.html.novoProduto.render(produtoForm, fabricantes, categorias));
         }
 
-        Produto Produto = form.get();
-        Produto.save();
+        Produto produtoFormu = form.get();
+        produtoFormu.save();
 
         flash("sucesso","Registro gravado com sucesso");
         return redirect(routes.ProdutoCRUD.lista());

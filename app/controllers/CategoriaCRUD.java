@@ -74,5 +74,4 @@ public class CategoriaCRUD extends Controller{
 
         return lista();
     }
-
 }

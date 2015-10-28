@@ -17,10 +17,10 @@ public class Produto extends Model{
     private Long codigo;
 
     @OneToMany
-    private Long codigoFabricante;
+    private Fabricante fabricante;
 
     @OneToMany
-    private Long codigoCategoria;
+    private Categoria categoria;
 
     @Constraints.Required
     private String nome;
@@ -62,22 +62,6 @@ public class Produto extends Model{
 
     public void setCodigo(Long codigo) {
         this.codigo = codigo;
-    }
-
-    public Long getCodigoFabricante() {
-        return codigoFabricante;
-    }
-
-    public void setCodigoFabricante(Long codigoFabricante) {
-        this.codigoFabricante = codigoFabricante;
-    }
-
-    public Long getCodigoCategoria() {
-        return codigoCategoria;
-    }
-
-    public void setCodigoCategoria(Long codigoCategoria) {
-        this.codigoCategoria = codigoCategoria;
     }
 
     public String getNome() {
@@ -150,5 +134,21 @@ public class Produto extends Model{
 
     public void setPeso(Double peso) {
         this.peso = peso;
+    }
+
+    public Fabricante getFabricante() {
+        return fabricante;
+    }
+
+    public void setFabricante(Fabricante fabricante) {
+        this.fabricante = fabricante;
+    }
+
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
     }
 }
