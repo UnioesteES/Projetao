@@ -32,6 +32,11 @@ public class Categoria extends Model{
     public static Model.Finder<String, Categoria> findNome =
             new Model.Finder(String.class, Categoria.class);
 
+    public Categoria(String nome, String descricao) {
+        this.nome = nome;
+        this.descricao = descricao;
+    }
+
     public Long getCodigo() {
         return codigo;
     }
@@ -77,4 +82,5 @@ public class Categoria extends Model{
 
         return erros.isEmpty() ? null : erros;
     }
+
 }

@@ -1,5 +1,6 @@
 package controllers;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import models.Categoria;
 import play.data.Form;
 import play.libs.Json;
@@ -25,6 +26,24 @@ public class CategoriaCRUD extends Controller{
     public static Result listaJson(){
         List<Categoria> categorias = Categoria.find.findList();
         return ok(Json.toJson(categorias));
+    }
+
+    public static Result novaCategoriaJson() {
+        JsonNode json = request().body().asJson();
+        if(json == null) {
+            return badRequest("Expecting Json data");
+        } else {
+            String nome = json.findPath("nome").asText();
+            String descricao = json.findPath("descricao").asText();
+
+            if(nome == null) {
+                return badRequest("Missing parameter [codigo]");
+            } else {
+                Categoria categoria = new Categoria(nome, descricao);
+                categoria.save();
+                return ok();
+            }
+        }
     }
 
     //Efetua novo cadastro
