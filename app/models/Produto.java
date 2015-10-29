@@ -1,6 +1,6 @@
 package models;
 
-import jdk.nashorn.internal.ir.annotations.Reference;
+
 import play.db.ebean.Model;
 import javax.persistence.*;
 import play.data.validation.Constraints;
@@ -16,11 +16,11 @@ public class Produto extends Model{
     @Id
     private Long codigo;
 
-    @OneToMany
-    private Fabricante fabricante;
+    @ManyToOne
+    public Fabricante fabricante;
 
-    @OneToMany
-    private Categoria categoria;
+    @ManyToOne
+    public Categoria categoria;
 
     @Constraints.Required
     private String nome;

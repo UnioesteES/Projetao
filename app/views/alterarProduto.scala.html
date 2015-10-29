@@ -10,8 +10,8 @@
     @form(routes.ProdutoCRUD.alterar(codigo)) {
       <fieldset>
           @helper.inputText(produtoForm("nome"), '_label -> Messages("produto.nome"))
-          @helper.inputText(produtoForm("codigoFabricante"), '_label -> Messages("produto.nomeFabricante"))
-          @helper.inputText(produtoForm("codigoCategoria"), '_label -> Messages("produto.nomeCategoria"))
+          @helper.inputText(produtoForm("fabricante.nome"), '_label -> Messages("produto.nomeFabricante"))
+          @helper.inputText(produtoForm("categoria.nome"), '_label -> Messages("produto.nomeCategoria"))
           @helper.inputText(produtoForm("descricao"), '_label -> Messages("produto.descricao"))
           @helper.inputText(produtoForm("modelo"), '_label -> Messages("produto.modelo"))
           @helper.inputText(produtoForm("preco"), '_label -> Messages("produto.preco"))

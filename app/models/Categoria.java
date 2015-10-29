@@ -15,7 +15,7 @@ public class Categoria extends Model{
     private static final long serialVersionUID = 1L;
 
     @Id
-    private Long codigo;
+    public Long codigo;
 
     @Constraints.Required
     private String nome;
@@ -53,7 +53,7 @@ public class Categoria extends Model{
     public static Map<String,String> options() {
         LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
         for (Categoria c : Categoria.find.orderBy("nome").findList()) {
-            options.put(c.getCodigo()+"",c.getNome());
+            options.put(c.getCodigo().toString(),c.getNome());
         }
         return options;
     }

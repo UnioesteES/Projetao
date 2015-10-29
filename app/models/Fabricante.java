@@ -12,7 +12,7 @@ public class Fabricante extends Model{
     private static final long serialVersionUID = 1L;
 
     @Id
-    private Long codigo;
+    public Long codigo;
 
     @Constraints.Required
     private String cnpj;
@@ -168,8 +168,10 @@ public class Fabricante extends Model{
     public static Map<String,String> options() {
         LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
         for (Fabricante f : Fabricante.find.orderBy("nome").findList()) {
-            options.put(f.getCodigo()+"",f.getNome());
+            options.put(f.getCodigo().toString(),f.getNome());
         }
         return options;
     }
+
+
 }

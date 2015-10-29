@@ -21,14 +21,14 @@
 
                 <!-- Fabricante -->
               @helper.select(
-                produtoForm("codigoFabricante"),
+                produtoForm("fabricante.codigo"),
                 options(Fabricante.options),
                 '_label -> Messages("produto.nomeFabricante"), '_default -> "Selecione o fabricante"
-              )
+              ) 
 
                 <!-- Categoria -->
               @helper.select(
-                produtoForm("codigoCategoria"),
+                produtoForm("categoria.codigo"),
                 options(Categoria.options),
                 '_label -> Messages("produto.nomeCategoria"), '_default -> "Selecione a categoria")
 

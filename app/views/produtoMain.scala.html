@@ -1,4 +1,3 @@
-@import scala.Predef.ArrowAssoc
 @(produtos: List[Produto])
   @mainAdmin(Messages("produto.titulo")) {
     <div class="header">
@@ -30,13 +29,20 @@
           <tr>
               <!--Exibe informações -->
             <th>
-            @produto.getNome()
+              <a href="@routes.ProdutoCRUD.detalhar(produto.getCodigo)">
+                @produto.getNome()
+              </a>
+            </th>
+
+            <th>
+              <a href="@routes.FabricanteCRUD.detalhar(produto.getFabricante.getCodigo)">
+            @produto.fabricante.getNome()
+              </a>
             </th>
             <th>
-            @produto.getFabricante()
-            </th>
-            <th>
-            @produto.getCategoria()
+              <a href="@routes.CategoriaCRUD.detalhar(produto.getCategoria.getCodigo)">
+            @produto.categoria.getNome()
+              </a>
             </th>
             <th>
             @produto.getPreco()

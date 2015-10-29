@@ -29,6 +29,8 @@ create table fabricante (
 
 create table produto (
   codigo                    bigint not null,
+  fabricante_codigo         bigint,
+  categoria_codigo          bigint,
   nome                      varchar(255),
   descricao                 varchar(255),
   modelo                    varchar(255),
@@ -47,6 +49,10 @@ create sequence fabricante_seq;
 
 create sequence produto_seq;
 
+alter table produto add constraint fk_produto_fabricante_1 foreign key (fabricante_codigo) references fabricante (codigo) on delete restrict on update restrict;
+create index ix_produto_fabricante_1 on produto (fabricante_codigo);
+alter table produto add constraint fk_produto_categoria_2 foreign key (categoria_codigo) references categoria (codigo) on delete restrict on update restrict;
+create index ix_produto_categoria_2 on produto (categoria_codigo);
 
 
 
