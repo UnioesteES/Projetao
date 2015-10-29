@@ -10,6 +10,7 @@ GET     /assets/*file                     controllers.Assets.at(path="/public", 
 
 # Categorias
 GET     /admin/categorias                 controllers.CategoriaCRUD.lista()
+GET     /admin/categoriaJson                 controllers.CategoriaCRUD.listaJson()
 GET     /admin/categorias/nova            controllers.CategoriaCRUD.novaCategoria()
 GET     /admin/categorias/:codigo         controllers.CategoriaCRUD.detalhar(codigo : Long)
 POST    /admin/categoria/                 controllers.CategoriaCRUD.gravar()

@@ -2,6 +2,7 @@ package controllers;
 
 import models.Categoria;
 import play.data.Form;
+import play.libs.Json;
 import play.mvc.Controller;
 import play.mvc.Result;
 
@@ -19,6 +20,11 @@ public class CategoriaCRUD extends Controller{
     public static Result lista(){
         List<Categoria> categorias = Categoria.find.findList();
         return ok(views.html.categoriaMain.render(categorias));
+    }
+
+    public static Result listaJson(){
+        List<Categoria> categorias = Categoria.find.findList();
+        return ok(Json.toJson(categorias));
     }
 
     //Efetua novo cadastro
