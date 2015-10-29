@@ -7,6 +7,8 @@ global.salvar = Salvar
 global.voltar = Voltar
 validation.required = Por favor, insira um valor em %s.
 
+constraint.required=Campo obrigatório*
+
 # Categorias
 categoria.titulo = Categorias
 categoria.nova = Nova categoria

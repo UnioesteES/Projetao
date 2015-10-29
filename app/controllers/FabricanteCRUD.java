@@ -2,6 +2,7 @@ package controllers;
 
 import models.Fabricante;
 import play.data.Form;
+import play.data.validation.Constraints;
 import play.data.validation.ValidationError;
 import play.mvc.Controller;
 import play.mvc.Result;
@@ -30,21 +31,21 @@ public class FabricanteCRUD extends Controller{
     public static Result gravar() {
         Form<Fabricante> form = fabricanteForm.bindFromRequest();
 
+        //Auxiliar para validação
+        //ValidationError validationError = new ValidationError();
+
+        //Verifica se e-mail está no padrão
 
         if (form.hasErrors()) { //Algum erro ocorreu
-            String mensagemErro = "O(s) campo(s) a seguir precisam ser preenchidos: \n";
+            String mensagemErro = "Verifique o(s) campo(s) a seguir: ";
 
             java.util.Map<String, List<ValidationError>> errorsAll = form.errors(); //armazena os erros do formulário
 
             for (String campo : errorsAll.keySet()) {
                 mensagemErro += " - " + campo;
-
-                /*
-                for (ValidationError error : errorsAll.get(campo)) {
-                    //mensagemErro += "necessita ser preenchido\n";
-                }*/
             }
-            flash("erro","Foram identificados problemas no cadastro.\n" + mensagemErro);
+
+            flash("erro","Foram identificados problemas no cadastro." + mensagemErro);
             return ok(views.html.novoFabricante.render(fabricanteForm));
         }
 

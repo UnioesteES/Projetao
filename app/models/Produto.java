@@ -21,9 +21,11 @@ public class Produto extends Model{
     private Long codigo;
 
     @ManyToOne
+    @Constraints.Required
     public Fabricante fabricante;
 
     @ManyToOne
+    @Constraints.Required
     public Categoria categoria;
 
     @Constraints.Required

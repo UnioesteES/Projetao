@@ -4,6 +4,7 @@ import models.Categoria;
 import models.Fabricante;
 import models.Produto;
 import play.data.Form;
+import play.data.validation.ValidationError;
 import play.mvc.Controller;
 import play.mvc.Result;
 import java.util.List;
@@ -32,17 +33,18 @@ public class ProdutoCRUD extends Controller{
         Form<Produto> form = produtoForm.bindFromRequest();
         List<Fabricante> fabricantes = Fabricante.find.findList();
         List<Categoria> categorias = Categoria.find.findList();
-    /*
-        vali.required(name);
-        validation.required(name);
-        validation.required(name);
 
-        //Realiza validação verificando se há algum problema
-        if(valid)
-        */
+        String mensagemErro = "Verifique o(s) campo(s) a seguir: \n";
+
+        java.util.Map<String, List<ValidationError>> errorsAll = form.errors(); //armazena os erros do formulário
+
+        for (String campo : errorsAll.keySet()) {
+            mensagemErro += " - " + campo;
+        }
+
         //Verifica se há algum erro no formulário
         if (form.hasErrors()) {
-            flash("erro","Foram identificados problemas no cadastro");
+            flash("erro","Foram identificados problemas no cadastro. " +  mensagemErro);
             return ok(views.html.novoProduto.render(produtoForm, fabricantes, categorias));
         }
 
