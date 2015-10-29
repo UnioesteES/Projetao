@@ -34,12 +34,12 @@ create table produto (
   nome                      varchar(255),
   descricao                 varchar(255),
   modelo                    varchar(255),
-  preco                     double,
-  quantidade                double,
+  preco                     float,
+  quantidade                float,
   altura                    integer,
   largura                   integer,
   comprimento               integer,
-  peso                      double,
+  peso                      float,
   constraint pk_produto primary key (codigo))
 ;
 
@@ -49,24 +49,20 @@ create sequence fabricante_seq;
 
 create sequence produto_seq;
 
-alter table produto add constraint fk_produto_fabricante_1 foreign key (fabricante_codigo) references fabricante (codigo) on delete restrict on update restrict;
+alter table produto add constraint fk_produto_fabricante_1 foreign key (fabricante_codigo) references fabricante (codigo);
 create index ix_produto_fabricante_1 on produto (fabricante_codigo);
-alter table produto add constraint fk_produto_categoria_2 foreign key (categoria_codigo) references categoria (codigo) on delete restrict on update restrict;
+alter table produto add constraint fk_produto_categoria_2 foreign key (categoria_codigo) references categoria (codigo);
 create index ix_produto_categoria_2 on produto (categoria_codigo);
 
 
 
 # --- !Downs
 
-SET REFERENTIAL_INTEGRITY FALSE;
+drop table if exists categoria cascade;
 
-drop table if exists categoria;
+drop table if exists fabricante cascade;
 
-drop table if exists fabricante;
-
-drop table if exists produto;
-
-SET REFERENTIAL_INTEGRITY TRUE;
+drop table if exists produto cascade;
 
 drop sequence if exists categoria_seq;
 
