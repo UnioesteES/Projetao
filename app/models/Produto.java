@@ -1,9 +1,13 @@
 package models;
 
 
+import play.data.validation.ValidationError;
 import play.db.ebean.Model;
 import javax.persistence.*;
 import play.data.validation.Constraints;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by alysson on 26/10/15.
@@ -35,7 +39,7 @@ public class Produto extends Model{
     private Double quantidade;
 
     private Integer altura;
-    private Integer lagura;
+    private Integer largura;
     private Integer comprimento;
     private Double peso;
 
@@ -112,12 +116,12 @@ public class Produto extends Model{
         this.altura = altura;
     }
 
-    public Integer getLagura() {
-        return lagura;
+    public Integer getLargura() {
+        return largura;
     }
 
-    public void setLagura(Integer lagura) {
-        this.lagura = lagura;
+    public void setLargura(Integer largura) {
+        this.largura = largura;
     }
 
     public Integer getComprimento() {
@@ -150,5 +154,15 @@ public class Produto extends Model{
 
     public void setCategoria(Categoria categoria) {
         this.categoria = categoria;
+    }
+
+    public List<ValidationError> validacao() {
+        List<ValidationError> erros = new ArrayList<ValidationError>();
+        /* Verifica se algum produto cadastrado com esse nome
+        if (Produto.byNome(nome) != null) {
+            erros.add(new ValidationError("email", "This e-mail is already registered."));
+        }
+        */
+        return erros.isEmpty() ? null : erros;
     }
 }

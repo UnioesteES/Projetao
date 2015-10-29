@@ -5,6 +5,7 @@ global.home = Página Inicial
 global.titulo = Projetão PES II
 global.salvar = Salvar
 global.voltar = Voltar
+validation.required = Por favor, insira um valor em %s.
 
 # Categorias
 categoria.titulo = Categorias

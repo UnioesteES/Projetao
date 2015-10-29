@@ -37,7 +37,7 @@ create table produto (
   preco                     double,
   quantidade                double,
   altura                    integer,
-  lagura                    integer,
+  largura                   integer,
   comprimento               integer,
   peso                      double,
   constraint pk_produto primary key (codigo))

@@ -69,7 +69,7 @@ public class CategoriaCRUD extends Controller{
             Categoria.find.ref(codigo).delete();
             flash("sucesso","Categoria removida com sucesso");
         } catch (Exception e){
-            flash("erro", play.i18n.Messages.get("global.erro"));
+            flash("erro", "Houve um erro ao remover a categoria. Verifique se a mesma não está vinculada a algum produto.");
         }
 
         return lista();

@@ -32,7 +32,15 @@ public class ProdutoCRUD extends Controller{
         Form<Produto> form = produtoForm.bindFromRequest();
         List<Fabricante> fabricantes = Fabricante.find.findList();
         List<Categoria> categorias = Categoria.find.findList();
+    /*
+        vali.required(name);
+        validation.required(name);
+        validation.required(name);
 
+        //Realiza validação verificando se há algum problema
+        if(valid)
+        */
+        //Verifica se há algum erro no formulário
         if (form.hasErrors()) {
             flash("erro","Foram identificados problemas no cadastro");
             return ok(views.html.novoProduto.render(produtoForm, fabricantes, categorias));

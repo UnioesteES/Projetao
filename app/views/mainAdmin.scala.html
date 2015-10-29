@@ -237,6 +237,18 @@
                             <small>Painel Administrativo</small>
                             </h1>
                                 <!-- Corpo da página -->
+                            <!-- Feedback ao usuário -->
+                            @if(flash.containsKey("sucesso")) {
+                                <div class="alert alert-success">
+                                @flash.get("sucesso")
+                                </div>
+                            }
+                            @if(flash.containsKey("erro")) {
+                                <div class="alert alert-danger">
+                                @flash.get("erro")
+                                </div>
+                            }
+                            <!-- Conteúdo da página -->
                             @content
                         </div>
                     </div>
