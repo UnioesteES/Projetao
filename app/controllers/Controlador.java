@@ -7,10 +7,24 @@ import play.mvc.Result;
  */
 public interface Controlador {
 
-    //public Result lista();
-    //public Result gravar();
-    //public Result detalhar(Long codigo);
-    //public Result alterar(Long codigo);
-    //public Result remover(Long codigo);
+    public static Result lista() {
+        return null;
+    }
+
+    public static Result gravar(){
+        return null;
+    }
+
+    public static Result detalhar(Long codigo){
+        return null;
+    }
+
+    public static Result alterar(Long codigo){
+        return null;
+    }
+
+    public static Result remover(Long codigo){
+        return null;
+    }
 
 }
