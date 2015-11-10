@@ -24,19 +24,17 @@ public class ProdutoController extends Controller implements Controlador{
 
     //Efetua novo cadastro
     public static Result novoProduto() {
-        List<Fornecedor> fornecedors = Fornecedor.find.findList();
+        List<Fornecedor> fornecedores = Fornecedor.find.findList();
         List<Categoria> categorias = Categoria.find.findList();
 
-        return ok(views.html.novoProduto.render(produtoForm, fornecedors, categorias));
+        return ok(views.html.novoProduto.render(produtoForm, fornecedores, categorias));
     }
 
     //Grava novo Produto no banco
     public static Result gravar() {
         Form<Produto> form = produtoForm.bindFromRequest();
-        List<Fornecedor> fornecedors = Fornecedor.find.findList();
+        List<Fornecedor> fornecedores = Fornecedor.find.findList();
         List<Categoria> categorias = Categoria.find.findList();
-
-
 
         String mensagemErro = "Verifique o(s) campo(s) a seguir: \n";
 
@@ -49,7 +47,7 @@ public class ProdutoController extends Controller implements Controlador{
         //Verifica se há algum erro no formulário
         if (form.hasErrors()) {
             flash("erro","Foram identificados problemas no cadastro. " +  mensagemErro);
-            return ok(views.html.novoProduto.render(produtoForm, fornecedors, categorias));
+            return ok(views.html.novoProduto.render(produtoForm, fornecedores, categorias));
         }
 
         Produto produtoFormu = form.get();

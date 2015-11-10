@@ -26,7 +26,7 @@ public class Produto extends Model{
 
     @ManyToMany
     @Constraints.Required
-    public Categoria categoria;
+    public List<Categoria> categorias = new ArrayList<>();
 
     @Constraints.Required
     private String nome;
@@ -150,12 +150,12 @@ public class Produto extends Model{
         this.fornecedor = fornecedor;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
+    public List<Categoria> getCategorias() {
+        return categorias;
     }
 
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
+    public void setCategoria(List<Categoria> categorias) {
+        this.categorias = categorias;
     }
 
     public List<ValidationError> validacao() {
