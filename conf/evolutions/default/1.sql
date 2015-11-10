@@ -27,10 +27,26 @@ create table fabricante (
   constraint pk_fabricante primary key (codigo))
 ;
 
+create table fornecedor (
+  codigo                    bigint not null,
+  cnpj                      varchar(255),
+  nome                      varchar(255),
+  rua                       varchar(255),
+  numero                    integer,
+  bairro                    varchar(255),
+  cep                       varchar(255),
+  cidade                    varchar(255),
+  estado                    varchar(255),
+  pais                      varchar(255),
+  telefone1                 varchar(255),
+  telefone2                 varchar(255),
+  email                     varchar(255),
+  constraint pk_fornecedor primary key (codigo))
+;
+
 create table produto (
   codigo                    bigint not null,
-  fabricante_codigo         bigint,
-  categoria_codigo          bigint,
+  fornecedor_codigo         bigint,
   nome                      varchar(255),
   descricao                 varchar(255),
   modelo                    varchar(255),
@@ -47,12 +63,12 @@ create sequence categoria_seq;
 
 create sequence fabricante_seq;
 
+create sequence fornecedor_seq;
+
 create sequence produto_seq;
 
-alter table produto add constraint fk_produto_fabricante_1 foreign key (fabricante_codigo) references fabricante (codigo);
-create index ix_produto_fabricante_1 on produto (fabricante_codigo);
-alter table produto add constraint fk_produto_categoria_2 foreign key (categoria_codigo) references categoria (codigo);
-create index ix_produto_categoria_2 on produto (categoria_codigo);
+alter table produto add constraint fk_produto_fornecedor_1 foreign key (fornecedor_codigo) references fornecedor (codigo);
+create index ix_produto_fornecedor_1 on produto (fornecedor_codigo);
 
 
 
@@ -62,11 +78,15 @@ drop table if exists categoria cascade;
 
 drop table if exists fabricante cascade;
 
+drop table if exists fornecedor cascade;
+
 drop table if exists produto cascade;
 
 drop sequence if exists categoria_seq;
 
 drop sequence if exists fabricante_seq;
+
+drop sequence if exists fornecedor_seq;
 
 drop sequence if exists produto_seq;
 

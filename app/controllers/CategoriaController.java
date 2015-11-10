@@ -12,7 +12,7 @@ import java.util.List;
 /**
  * Created by alysson on 23/10/15.
  */
-public class CategoriaCRUD extends Controller{
+public class CategoriaController extends Controller implements Controlador{
 
     private static final Form<Categoria> categoriaForm =
             Form.form(Categoria.class);
@@ -64,7 +64,7 @@ public class CategoriaCRUD extends Controller{
         categoria.save();
 
         flash("sucesso","Registro gravado com sucesso");
-        return redirect(routes.CategoriaCRUD.lista());
+        return redirect(routes.CategoriaController.lista());
     }
 
     //Exibe informações de uma categoriaMain
@@ -85,7 +85,7 @@ public class CategoriaCRUD extends Controller{
         alterarForm.get().update(codigo);
         flash("sucesso","Categoria "
                 + alterarForm.get().getNome() + " alterada com sucesso");
-        return redirect(routes.CategoriaCRUD.lista());
+        return redirect(routes.CategoriaController.lista());
     }
 
     //Remove uma categoria

@@ -22,9 +22,9 @@ public class Produto extends Model{
 
     @ManyToOne
     @Constraints.Required
-    public Fabricante fabricante;
+    public Fornecedor fornecedor;
 
-    @ManyToOne
+    @ManyToMany
     @Constraints.Required
     public Categoria categoria;
 
@@ -142,12 +142,12 @@ public class Produto extends Model{
         this.peso = peso;
     }
 
-    public Fabricante getFabricante() {
-        return fabricante;
+    public Fornecedor getFornecedor() {
+        return fornecedor;
     }
 
-    public void setFabricante(Fabricante fabricante) {
-        this.fabricante = fabricante;
+    public void setFornecedor(Fornecedor fornecedor) {
+        this.fornecedor = fornecedor;
     }
 
     public Categoria getCategoria() {

@@ -1,15 +1,17 @@
 package controllers;
 
 import models.Categoria;
-import models.Fabricante;
+import models.Fornecedor;
 import models.Produto;
 import play.data.Form;
 import play.data.validation.ValidationError;
 import play.mvc.Controller;
 import play.mvc.Result;
+
+import java.io.File;
 import java.util.List;
 
-public class ProdutoCRUD extends Controller{
+public class ProdutoController extends Controller implements Controlador{
 
     private static final Form<Produto> produtoForm =
             Form.form(Produto.class);
@@ -22,17 +24,19 @@ public class ProdutoCRUD extends Controller{
 
     //Efetua novo cadastro
     public static Result novoProduto() {
-        List<Fabricante> fabricantes = Fabricante.find.findList();
+        List<Fornecedor> fornecedors = Fornecedor.find.findList();
         List<Categoria> categorias = Categoria.find.findList();
 
-        return ok(views.html.novoProduto.render(produtoForm, fabricantes, categorias));
+        return ok(views.html.novoProduto.render(produtoForm, fornecedors, categorias));
     }
 
     //Grava novo Produto no banco
     public static Result gravar() {
         Form<Produto> form = produtoForm.bindFromRequest();
-        List<Fabricante> fabricantes = Fabricante.find.findList();
+        List<Fornecedor> fornecedors = Fornecedor.find.findList();
         List<Categoria> categorias = Categoria.find.findList();
+
+
 
         String mensagemErro = "Verifique o(s) campo(s) a seguir: \n";
 
@@ -45,14 +49,14 @@ public class ProdutoCRUD extends Controller{
         //Verifica se há algum erro no formulário
         if (form.hasErrors()) {
             flash("erro","Foram identificados problemas no cadastro. " +  mensagemErro);
-            return ok(views.html.novoProduto.render(produtoForm, fabricantes, categorias));
+            return ok(views.html.novoProduto.render(produtoForm, fornecedors, categorias));
         }
 
         Produto produtoFormu = form.get();
         produtoFormu.save();
 
         flash("sucesso","Registro gravado com sucesso");
-        return redirect(routes.ProdutoCRUD.lista());
+        return redirect(routes.ProdutoController.lista());
     }
 
     //Exibe informações de um Produto
@@ -73,7 +77,7 @@ public class ProdutoCRUD extends Controller{
         alterarForm.get().update(codigo);
         flash("sucesso","Produto "
                 + alterarForm.get().getNome() + " alterado com sucesso");
-        return redirect(routes.ProdutoCRUD.lista());
+        return redirect(routes.ProdutoController.lista());
     }
 
     //Remove um Produto

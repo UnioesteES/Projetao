@@ -1,0 +1,74 @@
+@(fornecedorForm : Form[Fornecedor])
+
+@mainAdmin(Messages("fornecedor.novo")) {
+
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <li class="active"><a href="@routes.FornecedorController.lista()">@Messages("global.voltar")</a></li>
+    </ul>
+  </div>
+  <div>
+    @helper.form(action=routes.FornecedorController.gravar()) {
+      <form class="form-horizontal">
+        <fieldset>
+
+
+          <div class="control-group">
+            <div class="controls">
+              <!-- Informações principais -->
+                <!--
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                      @helper.inputText(fornecedorForm("cnpj"), '_label -> "CNPJ do fornecedor")
+                    </span>
+                    <span class="input-group-addon">
+                      @helper.inputText(fornecedorForm("nome"), '_label -> "Nome do fornecedor")
+                    </span>
+                  </div>
+                </div>
+              </div> -->
+
+                <!-- Informações de contato -->
+                <!--
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="input-group">
+                    <span class="input-group-addon">
+                    @helper.inputText(fornecedorForm("telefone1"), '_label -> Messages("contato.telefone1"))
+                    </span>
+                    <span class="input-group-addon">
+                    @helper.inputText(fornecedorForm("telefone2"), '_label -> Messages("contato.telefone2"))
+                    </span>
+                    <span class="input-group-addon">
+                    @helper.inputText(fornecedorForm("email"), '_label -> Messages("contato.email"))
+                    </span>
+                  </div>
+                </div>
+              </div> -->
+
+              @helper.inputText(fornecedorForm("cnpj"), '_label -> "CNPJ do fornecedor")
+              @helper.inputText(fornecedorForm("nome"), '_label -> "Nome do fornecedor")
+              @helper.inputText(fornecedorForm("telefone1"), '_label -> Messages("contato.telefone1"))
+              @helper.inputText(fornecedorForm("telefone2"), '_label -> Messages("contato.telefone2"))
+              @helper.inputText(fornecedorForm("email"), '_label -> Messages("contato.email"))
+              @helper.inputText(fornecedorForm("rua"), '_label -> Messages("endereco.rua"))
+              @helper.inputText(fornecedorForm("numero"), '_label -> Messages("endereco.numero"))
+              @helper.inputText(fornecedorForm("bairro"), '_label -> Messages("endereco.bairro"))
+              @helper.inputText(fornecedorForm("cep"), '_label -> Messages("endereco.cep"))
+              @helper.inputText(fornecedorForm("cidade"), '_label -> Messages("endereco.cidade"))
+              @helper.inputText(fornecedorForm("estado"), '_label -> Messages("endereco.estado"))
+              @helper.inputText(fornecedorForm("pais"), '_label -> Messages("endereco.pais"))
+            </div>
+          </div>
+          }
+
+    <div class="control-group">
+      <label class="control-label" for="singlebutton"></label>
+      <div class="controls">
+        <button id="singlebutton" name="singlebutton" class="btn btn-primary">@Messages("global.salvar")</button>
+      </div>
+    </div>
+
+}

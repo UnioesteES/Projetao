@@ -8,7 +8,7 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Entity
-public class Fabricante extends Model{
+public class Fornecedor extends Model{
     private static final long serialVersionUID = 1L;
 
     @Id
@@ -46,19 +46,19 @@ public class Fabricante extends Model{
     private String email;
 
     //Auxilia nas consultas por fabricantge
-    public static Model.Finder<Long, Fabricante> find =
-            new Model.Finder(Long.class, Fabricante.class);
+    public static Model.Finder<Long, Fornecedor> find =
+            new Model.Finder(Long.class, Fornecedor.class);
 
     public static long getSerialVersionUID() {
         return serialVersionUID;
     }
 
-    public static Finder<Long, Fabricante> getFind() {
+    public static Finder<Long, Fornecedor> getFind() {
         return find;
     }
 
-    public static void setFind(Finder<Long, Fabricante> find) {
-        Fabricante.find = find;
+    public static void setFind(Finder<Long, Fornecedor> find) {
+        Fornecedor.find = find;
     }
 
     public String getCnpj() {
@@ -167,7 +167,7 @@ public class Fabricante extends Model{
 
     public static Map<String,String> options() {
         LinkedHashMap<String,String> options = new LinkedHashMap<String,String>();
-        for (Fabricante f : Fabricante.find.orderBy("nome").findList()) {
+        for (Fornecedor f : Fornecedor.find.orderBy("nome").findList()) {
             options.put(f.getCodigo().toString(),f.getNome());
         }
         return options;

@@ -4,11 +4,11 @@
 
   <div class="header">
     <ul class="nav nav-pills pull-right">
-      <li class="active"><a href="@routes.CategoriaCRUD.lista()">@Messages("global.voltar")</a></li>
+      <li class="active"><a href="@routes.CategoriaController.lista()">@Messages("global.voltar")</a></li>
     </ul>
   </div>
   <div>
-    @helper.form(action=routes.CategoriaCRUD.gravar()) {
+    @helper.form(action=routes.CategoriaController.gravar()) {
       <form class="form-horizontal">
         <fieldset>
 

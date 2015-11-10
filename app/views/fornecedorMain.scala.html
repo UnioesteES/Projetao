@@ -1,10 +1,10 @@
-@(fabricantes: List[Fabricante])
-@mainAdmin(Messages("fabricante.titulo")) {
+@(fornecedores: List[Fornecedor])
+@mainAdmin(Messages("fornecedor.titulo")) {
   <div class="header">
     <ul class="nav nav-pills pull-right">
       <li class="active">
-        <a href="@routes.FabricanteCRUD.novoFabricante()">
-        @Messages("fabricante.novo")
+        <a href="@routes.FornecedorController.novoFornecedor()">
+        @Messages("fornecedor.novo")
         </a>
       </li>
       <li class="active"><a href="@routes.Application.indexAdmin()">@Messages("global.voltar")</a></li>
@@ -24,20 +24,20 @@
     <tfoot>
 
         <!-- Lista todas as categorias cadastradas -->
-      @for(fabricante <- fabricantes) {
+      @for(fornecedor <- fornecedores) {
         <tr>
             <!--Exibe informações -->
-          <th><a href="@routes.FabricanteCRUD.detalhar(fabricante.getCodigo())">
-            @fabricante.getCnpj()
+          <th><a href="@routes.FornecedorController.detalhar(fornecedor.getCodigo())">
+            @fornecedor.getCnpj()
           </a></th>
-          <th><a href="@routes.FabricanteCRUD.detalhar(fabricante.getCodigo())">
-            @fabricante.getNome()
+          <th><a href="@routes.FornecedorController.detalhar(fornecedor.getCodigo())">
+            @fornecedor.getNome()
           </a></th>
           <th>
-          @fabricante.getTelefone1()
+          @fornecedor.getTelefone1()
           </th>
-          <th><a href="mailto:fabricante.getEmail())">
-          @fabricante.getEmail()
+          <th><a href="mailto:@fornecedor.getEmail()">
+          @fornecedor.getEmail()
           </a></th>
         </tr>
       }

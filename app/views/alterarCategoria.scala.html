@@ -3,11 +3,11 @@
 @mainAdmin(Messages("categoria.alterar")) {
     <div class="header">
       <ul class="nav nav-pills pull-right">
-        <li class="active"><a href="@routes.CategoriaCRUD.lista()">@Messages("global.voltar")</a></li>
+        <li class="active"><a href="@routes.CategoriaController.lista()">@Messages("global.voltar")</a></li>
       </ul>
     </div>
 
-    @form(routes.CategoriaCRUD.alterar(codigo)) {
+    @form(routes.CategoriaController.alterar(codigo)) {
       <fieldset>
       @inputText(categoriaForm("nome"), '_label -> "Nome da categoria")
       @inputText(categoriaForm("descricao"), '_label -> "Descrição da categoria", 'size -> 30, 'cols -> 10, 'rows -> 30)
@@ -19,12 +19,12 @@
           <input type="submit" value="Gravar" class="btn btn-primary">
 
             <!-- Volta para listagem de categorias -->
-          <a href="@routes.CategoriaCRUD.lista()" class="btn btn-primary">
+          <a href="@routes.CategoriaController.lista()" class="btn btn-primary">
             Cancelar
           </a>
         }
 
-    @form(routes.CategoriaCRUD.remover(codigo)) {
+    @form(routes.CategoriaController.remover(codigo)) {
       <input type="submit" value="Remover essa categoria" class="btn alert-danger">
       }
   </div>

@@ -3,7 +3,7 @@
     <div class="header">
       <ul class="nav nav-pills pull-right">
         <li class="active">
-          <a href="@routes.ProdutoCRUD.novoProduto()">
+          <a href="@routes.ProdutoController.novoProduto()">
           @Messages("produto.novo")
           </a>
         </li>
@@ -16,7 +16,7 @@
       <thead>
         <tr class="active">
           <th>@Messages("produto.nome")</th>
-          <th>@Messages("produto.nomeFabricante")</th>
+          <th>@Messages("produto.nomeFornecedor")</th>
           <th>@Messages("produto.nomeCategoria")</th>
           <th>@Messages("produto.preco")</th>
           <th>@Messages("produto.quantidade")</th>
@@ -29,18 +29,18 @@
           <tr>
               <!--Exibe informações -->
             <th>
-              <a href="@routes.ProdutoCRUD.detalhar(produto.getCodigo)">
+              <a href="@routes.ProdutoController.detalhar(produto.getCodigo)">
                 @produto.getNome()
               </a>
             </th>
 
             <th>
-              <a href="@routes.FabricanteCRUD.detalhar(produto.getFabricante.getCodigo)">
-            @produto.fabricante.getNome()
+              <a href="@routes.FornecedorController.detalhar(produto.getFornecedor.getCodigo)">
+            @produto.fornecedor.getNome()
               </a>
             </th>
             <th>
-              <a href="@routes.CategoriaCRUD.detalhar(produto.getCategoria.getCodigo)">
+              <a href="@routes.CategoriaController.detalhar(produto.getCategoria.getCodigo)">
             @produto.categoria.getNome()
               </a>
             </th>

@@ -1,0 +1,43 @@
+@(codigo: Long, fornecedorForm: Form[Fornecedor])
+@import helper._
+@mainAdmin(Messages("fornecedor.alterar")) {
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="@routes.FornecedorController.lista()">@Messages("global.voltar")</a></li>
+      </ul>
+    </div>
+
+    @form(routes.FornecedorController.alterar(codigo)) {
+      <fieldset>
+          @inputText(fornecedorForm("cnpj"), '_label -> "CNPJ do fornecedor")
+          @inputText(fornecedorForm("nome"), '_label -> "Nome do fornecedor")
+          @inputText(fornecedorForm("telefone1"), '_label -> Messages("contato.telefone1"))
+          @inputText(fornecedorForm("telefone2"), '_label -> Messages("contato.telefone2"))
+          @inputText(fornecedorForm("email"), '_label -> Messages("contato.email"))
+          @inputText(fornecedorForm("rua"), '_label -> Messages("endereco.rua"))
+          @inputText(fornecedorForm("numero"), '_label -> Messages("endereco.numero"))
+          @inputText(fornecedorForm("bairro"), '_label -> Messages("endereco.bairro"))
+          @inputText(fornecedorForm("cep"), '_label -> Messages("endereco.cep"))
+          @inputText(fornecedorForm("cidade"), '_label -> Messages("endereco.cidade"))
+          @inputText(fornecedorForm("estado"), '_label -> Messages("endereco.estado"))
+          @inputText(fornecedorForm("pais"), '_label -> Messages("endereco.pais"))
+      </fieldset>
+
+      <div class="control-group">
+        <div class="actions">
+            <!-- Grava novo Fornecedor no banco -->
+          <input type="submit" value="Gravar" class="btn btn-primary">
+
+            <!-- Volta para listagem de fornecedors -->
+          <a href="@routes.FornecedorController.lista()" class="btn btn-primary">
+            Cancelar
+          </a>
+        }
+
+    @form(routes.FornecedorController.remover(codigo)) {
+      <input type="submit" value="Remover esse fornecedor" class="btn alert-danger">
+      }
+  </div>
+  </div>
+}
+

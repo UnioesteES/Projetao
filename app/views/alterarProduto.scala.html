@@ -3,19 +3,19 @@
 @mainAdmin(Messages("produto.alterar")) {
     <div class="header">
       <ul class="nav nav-pills pull-right">
-        <li class="active"><a href="@routes.ProdutoCRUD.lista()">@Messages("global.voltar")</a></li>
+        <li class="active"><a href="@routes.ProdutoController.lista()">@Messages("global.voltar")</a></li>
       </ul>
     </div>
 
-    @form(routes.ProdutoCRUD.alterar(codigo)) {
+    @form(routes.ProdutoController.alterar(codigo)) {
       <fieldset>
           @helper.inputText(produtoForm("nome"), '_label -> Messages("produto.nome"))
 
-              <!-- Fabricante -->
+              <!-- Fornecedor -->
           @helper.select(
-              produtoForm("fabricante.codigo"),
-              options(Fabricante.options),
-              '_label -> Messages("produto.nomeFabricante"), '_default -> "Selecione o fabricante"
+              produtoForm("fornecedor.codigo"),
+              options(Fornecedor.options),
+              '_label -> Messages("produto.nomeFornecedor"), '_default -> "Selecione o fornecedor"
           )
 
               <!-- Categoria -->
@@ -40,12 +40,12 @@
           <input type="submit" value="Gravar" class="btn btn-primary">
 
             <!-- Volta para listagem de produtos -->
-          <a href="@routes.ProdutoCRUD.lista()" class="btn btn-primary">
+          <a href="@routes.ProdutoController.lista()" class="btn btn-primary">
             Cancelar
           </a>
         }
 
-    @form(routes.ProdutoCRUD.remover(codigo)) {
+    @form(routes.ProdutoController.remover(codigo)) {
       <input type="submit" value="Remover esse produto" class="btn alert-danger">
       }
   </div>

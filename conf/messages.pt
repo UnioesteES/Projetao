@@ -25,7 +25,7 @@ produto.preenchaNome = Preencha o nome do produto
 
 # Info produtos
 produto.codigo = Código do produto
-produto.nomeFabricante = Nome do fabricante
+produto.nomeFornecedor = Nome do fornecedor
 produto.nomeCategoria = Nome da categoria
 produto.nome = Nome do produto
 produto.descricao = Descrição do produto
@@ -37,12 +37,12 @@ produto.largura = Largura
 produto.comprimento = Comprimento
 produto.peso = Peso
 
-# Fabricantes
-fabricante.titulo = Fabricantes
-fabricante.novo = Novo fabricante
-fabricante.alterar = Alterar fabricante
-fabricante.remover = Remover fabricante
-fabricante.preenchaNome = Preencha o nome do fabricante
+# Fornecedores
+fornecedor.titulo = Fornecedores
+fornecedor.novo = Novo fornecedor
+fornecedor.alterar = Alterar fornecedor
+fornecedor.remover = Remover fornecedor
+fornecedor.preenchaNome = Preencha o nome do fornecedor
 
 # Endereco
 endereco.rua = Rua

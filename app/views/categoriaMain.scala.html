@@ -3,7 +3,7 @@
   <div class="header">
     <ul class="nav nav-pills pull-right">
       <li class="active">
-        <a href="@routes.CategoriaCRUD.novaCategoria()">
+        <a href="@routes.CategoriaController.novaCategoria()">
         @Messages("categoria.nova")
         </a>
       </li>
@@ -25,7 +25,7 @@
       @for(categoria <- categorias) {
         <tr>
             <!--Exibe informações -->
-          <th><a href="@routes.CategoriaCRUD.detalhar(categoria.getCodigo)">
+          <th><a href="@routes.CategoriaController.detalhar(categoria.getCodigo)">
             @categoria.getNome
           </a></th>
           <th>
