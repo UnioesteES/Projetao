@@ -16,7 +16,7 @@ import java.util.Map;
 @Entity
 public class Categoria extends Model{
     private static final long serialVersionUID = 1L;
-
+    //teste
     @Id
     public Long codigo;
 
