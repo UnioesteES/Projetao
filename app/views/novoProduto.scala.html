@@ -28,10 +28,18 @@
 
                 <!-- Categoria -->
               @helper.select(
-                produtoForm("categorias"),
+                produtoForm("categoria1.codigo"),
                 options(Categoria.options),
-                'multiple -> "multiple",
-                '_label -> Messages("produto.nomeCategoria"))
+                '_label -> Messages("produto.nomeCategoria"),
+                '_default -> "Selecione a categoria"
+              )
+
+              @helper.select(
+                produtoForm("categoria2.codigo"),
+                options(Categoria.options),
+                '_label -> Messages("produto.nomeCategoria2"),
+                '_default -> "Selecione a categoria"
+            )
 
               @helper.inputText(produtoForm("descricao"), '_label -> Messages("produto.descricao"))
               @helper.inputText(produtoForm("modelo"), '_label -> Messages("produto.modelo"))

@@ -47,6 +47,8 @@ create table fornecedor (
 create table produto (
   codigo                    bigint not null,
   fornecedor_codigo         bigint,
+  categoria1_codigo         bigint,
+  categoria2_codigo         bigint,
   nome                      varchar(255),
   descricao                 varchar(255),
   modelo                    varchar(255),
@@ -59,12 +61,6 @@ create table produto (
   constraint pk_produto primary key (codigo))
 ;
 
-
-create table produto_categoria (
-  produto_codigo                 bigint not null,
-  categoria_codigo               bigint not null,
-  constraint pk_produto_categoria primary key (produto_codigo, categoria_codigo))
-;
 create sequence categoria_seq;
 
 create sequence fabricante_seq;
@@ -75,12 +71,12 @@ create sequence produto_seq;
 
 alter table produto add constraint fk_produto_fornecedor_1 foreign key (fornecedor_codigo) references fornecedor (codigo);
 create index ix_produto_fornecedor_1 on produto (fornecedor_codigo);
+alter table produto add constraint fk_produto_categoria1_2 foreign key (categoria1_codigo) references categoria (codigo);
+create index ix_produto_categoria1_2 on produto (categoria1_codigo);
+alter table produto add constraint fk_produto_categoria2_3 foreign key (categoria2_codigo) references categoria (codigo);
+create index ix_produto_categoria2_3 on produto (categoria2_codigo);
 
 
-
-alter table produto_categoria add constraint fk_produto_categoria_produto_01 foreign key (produto_codigo) references produto (codigo);
-
-alter table produto_categoria add constraint fk_produto_categoria_categori_02 foreign key (categoria_codigo) references categoria (codigo);
 
 # --- !Downs
 
@@ -91,8 +87,6 @@ drop table if exists fabricante cascade;
 drop table if exists fornecedor cascade;
 
 drop table if exists produto cascade;
-
-drop table if exists produto_categoria cascade;
 
 drop sequence if exists categoria_seq;
 

@@ -18,6 +18,7 @@
           <th>@Messages("produto.nome")</th>
           <th>@Messages("produto.nomeFornecedor")</th>
           <th>@Messages("produto.nomeCategoria")</th>
+          <th>@Messages("produto.nomeCategoria2")</th>
           <th>@Messages("produto.preco")</th>
           <th>@Messages("produto.quantidade")</th>
         </tr>
@@ -40,9 +41,17 @@
               </a>
             </th>
             <th>
-              <a href="@routes.CategoriaController.detalhar(produto.getCategoria.getCodigo)">
-            @produto.categoria.getNome()
+              <a href="@routes.CategoriaController.detalhar(produto.getCategoria1.getCodigo)">
+            @produto.categoria1.getNome()
               </a>
+            <th>
+              @if(produto.getCategoria2 == null) {
+                <p>Não especificada</p>
+              }else{
+                <a href="@routes.CategoriaController.detalhar(produto.getCategoria2.getCodigo)">
+                  @produto.categoria2.getNome()
+                </a>
+              }
             </th>
             <th>
             @produto.getPreco()

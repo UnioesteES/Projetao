@@ -20,7 +20,13 @@
 
               <!-- Categoria -->
           @helper.select(
-              produtoForm("categoria.codigo"),
+              produtoForm("categoria1.codigo"),
+              options(Categoria.options),
+              '_label -> Messages("produto.nomeCategoria"), '_default -> "Selecione a categoria")
+
+              <!-- Categoria -->
+          @helper.select(
+              produtoForm("categoria2.codigo"),
               options(Categoria.options),
               '_label -> Messages("produto.nomeCategoria"), '_default -> "Selecione a categoria")
 

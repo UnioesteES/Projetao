@@ -27,6 +27,7 @@ produto.preenchaNome = Preencha o nome do produto
 produto.codigo = Código do produto
 produto.nomeFornecedor = Nome do fornecedor
 produto.nomeCategoria = Nome da categoria
+produto.nomeCategoria2 = Nome da categoria 2
 produto.nome = Nome do produto
 produto.descricao = Descrição do produto
 produto.modelo = Modelo

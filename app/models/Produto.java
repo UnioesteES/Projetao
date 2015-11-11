@@ -24,9 +24,12 @@ public class Produto extends Model{
     @Constraints.Required
     public Fornecedor fornecedor;
 
-    @ManyToMany
+    @ManyToOne
     @Constraints.Required
-    public List<Categoria> categorias = new ArrayList<>();
+    public Categoria categoria1;
+
+    @ManyToOne
+    public Categoria categoria2;
 
     @Constraints.Required
     private String nome;
@@ -150,12 +153,20 @@ public class Produto extends Model{
         this.fornecedor = fornecedor;
     }
 
-    public List<Categoria> getCategorias() {
-        return categorias;
+    public Categoria getCategoria1() {
+        return categoria1;
     }
 
-    public void setCategoria(List<Categoria> categorias) {
-        this.categorias = categorias;
+    public Categoria getCategoria2() {
+        return categoria2;
+    }
+
+    public void setCategoria1(Categoria categoria1) {
+        this.categoria1 = categoria1;
+    }
+
+    public void setCategoria2(Categoria categoria2) {
+        this.categoria2 = categoria2;
     }
 
     public List<ValidationError> validacao() {
