@@ -26,8 +26,8 @@ produto.preenchaNome = Preencha o nome do produto
 # Info produtos
 produto.codigo = Código do produto
 produto.nomeFornecedor = Nome do fornecedor
-produto.nomeCategoria = Nome da categoria
-produto.nomeCategoria2 = Nome da categoria 2
+produto.nomeCategoria = Categoria
+produto.nomeCategoria2 = Categoria 2
 produto.nome = Nome do produto
 produto.descricao = Descrição do produto
 produto.modelo = Modelo
@@ -53,8 +53,28 @@ endereco.cep = CEP
 endereco.cidade = Cidade
 endereco.estado = Estado
 endereco.pais = País
+endereco.destinatario = Destinatario
+endereco.telefone_contato = Telefone contato
+endereco.logradouro = Logradouro
+endereco.complemento = Complemento
+
 
 # Contato
 contato.telefone1 = Telefone
 contato.telefone2 = Telefone alternativo
 contato.email = E-mail
+
+# Cliente
+
+cliente.titulo = Clientes
+cliente.novo = Novo cliente
+cliente.primeiroNome = Primeiro nome
+cliente.ultimoNome = Ultimo nome
+cliente.cpf = Cpf
+cliente.email = Email
+cliente.dataNascimento = Data de nascimento
+cliente.telefoneFixo = Telefone fixo
+cliente.senha = Senha
+cliente.endereco = Endereco
+cliente.alterar = Alterar cliente
+

@@ -33,3 +33,11 @@ GET     /admin/produtos/:codigo           controllers.ProdutoController.detalhar
 POST    /admin/produtos/                controllers.ProdutoController.gravar()
 POST    /admin/produtos/:codigo           controllers.ProdutoController.alterar(codigo: Long)
 POST    /admin/produtos/:codigo/remover   controllers.ProdutoController.remover(codigo: Long)
+
+# Clientes
+GET     /admin/clientes                      controllers.ClienteController.lista()
+GET     /admin/clientes/novo            controllers.ClienteController.novoCliente()
+GET     /admin/clientes/:codigo           controllers.ClienteController.detalhar(codigo: Long)
+POST    /admin/clientes/                controllers.ClienteController.gravar()
+POST    /admin/clientes/:codigo           controllers.ClienteController.alterar(codigo: Long)
+POST    /admin/clientes/:codigo/remover   controllers.ClienteController.remover(codigo: Long)

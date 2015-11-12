@@ -1,0 +1,105 @@
+@(clienteForm : Form[Cliente])
+
+@import helper._
+@mainAdmin(Messages("cliente.novo")) {
+
+  <div class="header">
+    <ul class="nav nav-pills pull-right">
+      <li class="active"><a href="@routes.ClienteController.lista()">@Messages("global.voltar")</a></li>
+    </ul>
+  </div>
+  <div>
+    @helper.form(action=routes.ClienteController.gravar()) {
+      <form class="form-horizontal">
+        <fieldset>
+          <div class="control-group">
+            <div class="controls">
+
+              @helper.inputText(clienteForm("primeiroNome"), '_label -> Messages("cliente.primeiroNome"))
+              @helper.inputText(clienteForm("ultimoNome"), '_label -> Messages("cliente.ultimoNome"))
+              @helper.inputText(clienteForm("cpf"), '_label -> Messages("cliente.cpf"))
+              @helper.inputText(clienteForm("email"), '_label -> Messages("cliente.email"))
+              @helper.inputText(clienteForm("senha"), '_label -> Messages("cliente.senha"))
+              @helper.inputText(clienteForm("dataNascimento"), '_label -> Messages("cliente.dataNascimento"))
+              @helper.inputText(clienteForm("telefoneFixo"), '_label -> Messages("cliente.telefoneFixo"))
+
+              <dt><label for="endereco.destinatario">Destinatario</label></dt>
+              <dd>
+                <input type="text" id="endereco.destinatario" name="endereco.destinatario" value="" />
+              </dd>
+
+              <dt><label for="endereco.telefone_contato">Telefone contato</label></dt>
+              <dd>
+                <input type="text" id="endereco.telefone_contato" name="endereco.telefone_contato" value="" />
+              </dd>
+
+              <dt><label for="endereco.logradouro">Logradouro</label></dt>
+              <dd>
+                <input type="text" id="endereco.logradouro" name="endereco.logradouro" value="" />
+              </dd>
+
+              <dt><label for="endereco.numero">Número</label></dt>
+              <dd>
+                <input type="text" id="endereco.numero" name="endereco.numero" value="" />
+              </dd>
+
+              <dt><label for="endereco.complemento">Complemento</label></dt>
+              <dd>
+                <input type="text" id="endereco.complemento" name="endereco.complemento" value="" />
+              </dd>
+
+              <dt><label for="endereco_bairro">Bairro</label></dt>
+              <dd>
+                <input type="text" id="endereco.bairro" name="endereco.bairro" value="" />
+              </dd>
+
+              <dt><label for="endereco.cidade">Cidade</label></dt>
+              <dd>
+                <input type="text" id="endereco.cidade" name="endereco.cidade" value="" />
+              </dd>
+
+              <dt><label for="endereco.estado">Estado</label></dt>
+              <dd>
+                <input type="text" id="endereco.estado" name="endereco.estado" value="" />
+              </dd>
+
+            </div>
+          </div>
+
+          <!-- Upload de imagem
+          <table class="table table-striped table-bordered"
+          cellpadding="0" cellspacing="0" border="0" width="100%">
+
+            <!-- Depois adicionamos a lista de filmes e em seguida a opção de upload (
+            type="file") no parâmetro picture.
+
+            <tr>
+              <th>Escolha uma ou mais imagens para fazer upload:</th>
+
+            </tr>
+            <tr>
+              <td><p>Imagem 1</p>
+                <input type="file" name="imagem1" class="form-control">
+              </td>
+            </tr>
+            <tr>
+              <td><p>Imagem 2</p>
+                <input type="file" name="imagem2" class="form-control">
+              </td>
+            </tr>
+            <tr>
+              <td><p>Imagem 3</p>
+                <input type="file" name="imagem3" class="form-control">
+              </td>
+            </tr>
+          </table> -->
+          }
+
+    <div class="control-group">
+      <label class="control-label" for="singlebutton"></label>
+      <div class="controls">
+        <button id="singlebutton" name="singlebutton" class="btn btn-primary">@Messages("global.salvar")</button>
+      </div>
+    </div>
+  </div>
+}

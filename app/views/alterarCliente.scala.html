@@ -1,0 +1,47 @@
+@(codigo: Long, clienteForm: Form[Cliente])
+@import helper._
+@mainAdmin(Messages("cliente.alterar")) {
+    <div class="header">
+      <ul class="nav nav-pills pull-right">
+        <li class="active"><a href="@routes.ClienteController.lista()">@Messages("global.voltar")</a></li>
+      </ul>
+    </div>
+
+    @form(routes.ClienteController.alterar(codigo)) {
+      <fieldset>
+          @helper.inputText(clienteForm("primeiroNome"), '_label -> Messages("cliente.primeiroNome"))
+          @helper.inputText(clienteForm("ultimoNome"), '_label -> Messages("cliente.ultimoNome"))
+          @helper.inputText(clienteForm("cpf"), '_label -> Messages("cliente.cpf"))
+          @helper.inputText(clienteForm("email"), '_label -> Messages("cliente.email"))
+          @helper.inputText(clienteForm("senha"), '_label -> Messages("cliente.senha"))
+          @helper.inputText(clienteForm("dataNascimento"), '_label -> Messages("cliente.dataNascimento"))
+          @helper.inputText(clienteForm("telefoneFixo"), '_label -> Messages("cliente.telefoneFixo"))
+
+          @helper.inputText(clienteForm("endereco.destinatario"), '_label -> Messages("endereco.destinatario"))
+          @helper.inputText(clienteForm("endereco.telefone_contato"), '_label -> Messages("endereco.telefone_contato"))
+          @helper.inputText(clienteForm("endereco.logradouro"), '_label -> Messages("endereco.logradouro"))
+          @helper.inputText(clienteForm("endereco.numero"), '_label -> Messages("endereco.numero"))
+          @helper.inputText(clienteForm("endereco.complemento"), '_label -> Messages("endereco.complemento"))
+          @helper.inputText(clienteForm("endereco.bairro"), '_label -> Messages("endereco.bairro"))
+          @helper.inputText(clienteForm("endereco.cidade"), '_label -> Messages("endereco.cidade"))
+          @helper.inputText(clienteForm("endereco.estado"), '_label -> Messages("endereco.estado"))
+      </fieldset>
+
+      <div class="control-group">
+        <div class="actions">
+            <!-- Grava novo Produto no banco -->
+          <input type="submit" value="Gravar" class="btn btn-primary">
+
+            <!-- Volta para listagem de produtos -->
+          <a href="@routes.ClienteController.lista()" class="btn btn-primary">
+            Cancelar
+          </a>
+        }
+
+    @form(routes.ClienteController.remover(codigo)) {
+      <input type="submit" value="Remover esse cliente" class="btn alert-danger">
+      }
+  </div>
+  </div>
+}
+

@@ -48,15 +48,16 @@
                 </div>
               </div> -->
 
-              @helper.inputText(fornecedorForm("cnpj"), '_label -> "CNPJ do fornecedor")
+
+              @helper.inputText(fornecedorForm("cnpj"), 'type -> "number", '_label -> "CNPJ do fornecedor")
               @helper.inputText(fornecedorForm("nome"), '_label -> "Nome do fornecedor")
-              @helper.inputText(fornecedorForm("telefone1"), '_label -> Messages("contato.telefone1"))
-              @helper.inputText(fornecedorForm("telefone2"), '_label -> Messages("contato.telefone2"))
-              @helper.inputText(fornecedorForm("email"), '_label -> Messages("contato.email"))
+              @helper.inputText(fornecedorForm("telefone1"), 'type -> "number", '_label -> Messages("contato.telefone1"))
+              @helper.inputText(fornecedorForm("telefone2"), 'type -> "number", '_label -> Messages("contato.telefone2"))
+              @helper.inputText(fornecedorForm("email"), 'type -> "email", '_label -> Messages("contato.email"))
               @helper.inputText(fornecedorForm("rua"), '_label -> Messages("endereco.rua"))
-              @helper.inputText(fornecedorForm("numero"), '_label -> Messages("endereco.numero"))
+              @helper.inputText(fornecedorForm("numero"), 'type -> "number", '_label -> Messages("endereco.numero"))
               @helper.inputText(fornecedorForm("bairro"), '_label -> Messages("endereco.bairro"))
-              @helper.inputText(fornecedorForm("cep"), '_label -> Messages("endereco.cep"))
+              @helper.inputText(fornecedorForm("cep"), 'type -> "number", '_label -> Messages("endereco.cep"))
               @helper.inputText(fornecedorForm("cidade"), '_label -> Messages("endereco.cidade"))
               @helper.inputText(fornecedorForm("estado"), '_label -> Messages("endereco.estado"))
               @helper.inputText(fornecedorForm("pais"), '_label -> Messages("endereco.pais"))

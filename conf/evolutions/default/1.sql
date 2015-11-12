@@ -10,6 +10,31 @@ create table categoria (
   constraint pk_categoria primary key (codigo))
 ;
 
+create table cliente (
+  codigo                    bigint not null,
+  primeiro_nome             varchar(255),
+  ultimo_nome               varchar(255),
+  cpf                       varchar(255),
+  email                     varchar(255),
+  senha                     varchar(255),
+  data_nascimento           varchar(255),
+  telefone_fixo             varchar(255),
+  constraint pk_cliente primary key (codigo))
+;
+
+create table endereco (
+  codigo                    bigint not null,
+  destinatario              varchar(255),
+  telefone_contato          varchar(255),
+  logradouro                varchar(255),
+  numero                    integer,
+  complemento               varchar(255),
+  bairro                    varchar(255),
+  cidade                    varchar(255),
+  estado                    varchar(255),
+  constraint pk_endereco primary key (codigo))
+;
+
 create table fabricante (
   codigo                    bigint not null,
   cnpj                      varchar(255),
@@ -63,6 +88,10 @@ create table produto (
 
 create sequence categoria_seq;
 
+create sequence cliente_seq;
+
+create sequence endereco_seq;
+
 create sequence fabricante_seq;
 
 create sequence fornecedor_seq;
@@ -82,6 +111,10 @@ create index ix_produto_categoria2_3 on produto (categoria2_codigo);
 
 drop table if exists categoria cascade;
 
+drop table if exists cliente cascade;
+
+drop table if exists endereco cascade;
+
 drop table if exists fabricante cascade;
 
 drop table if exists fornecedor cascade;
@@ -89,6 +122,10 @@ drop table if exists fornecedor cascade;
 drop table if exists produto cascade;
 
 drop sequence if exists categoria_seq;
+
+drop sequence if exists cliente_seq;
+
+drop sequence if exists endereco_seq;
 
 drop sequence if exists fabricante_seq;
 

@@ -44,10 +44,10 @@
               @helper.inputText(produtoForm("descricao"), '_label -> Messages("produto.descricao"))
               @helper.inputText(produtoForm("modelo"), '_label -> Messages("produto.modelo"))
               @helper.inputText(produtoForm("preco"), '_label -> Messages("produto.preco"))
-              @helper.inputText(produtoForm("quantidade"), '_label -> Messages("produto.quantidade"))
-              @helper.inputText(produtoForm("altura"), '_label -> Messages("produto.altura"))
-              @helper.inputText(produtoForm("largura"), '_label -> Messages("produto.largura"))
-              @helper.inputText(produtoForm("comprimento"), '_label -> Messages("produto.comprimento"))
+              @helper.inputText(produtoForm("quantidade"), 'type -> "number", '_label -> Messages("produto.quantidade"))
+              @helper.inputText(produtoForm("altura"), 'type -> "number", '_label -> Messages("produto.altura"))
+              @helper.inputText(produtoForm("largura"), 'type -> "number", '_label -> Messages("produto.largura"))
+              @helper.inputText(produtoForm("comprimento"), 'type -> "number", '_label -> Messages("produto.comprimento"))
               @helper.inputText(produtoForm("peso"), '_label -> Messages("produto.peso"))
 
 
