@@ -20,7 +20,7 @@ public class Cliente extends Model{
     @Id
     private Long codigo;
 
-    @OnetoOne
+    @OneToOne(cascade = CascadeType.ALL)
     @Constraints.Required
     public Endereco endereco;
 

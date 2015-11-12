@@ -12,6 +12,7 @@ create table categoria (
 
 create table cliente (
   codigo                    bigint not null,
+  endereco_codigo           bigint,
   primeiro_nome             varchar(255),
   ultimo_nome               varchar(255),
   cpf                       varchar(255),
@@ -33,23 +34,6 @@ create table endereco (
   cidade                    varchar(255),
   estado                    varchar(255),
   constraint pk_endereco primary key (codigo))
-;
-
-create table fabricante (
-  codigo                    bigint not null,
-  cnpj                      varchar(255),
-  nome                      varchar(255),
-  rua                       varchar(255),
-  numero                    integer,
-  bairro                    varchar(255),
-  cep                       varchar(255),
-  cidade                    varchar(255),
-  estado                    varchar(255),
-  pais                      varchar(255),
-  telefone1                 varchar(255),
-  telefone2                 varchar(255),
-  email                     varchar(255),
-  constraint pk_fabricante primary key (codigo))
 ;
 
 create table fornecedor (
@@ -92,18 +76,18 @@ create sequence cliente_seq;
 
 create sequence endereco_seq;
 
-create sequence fabricante_seq;
-
 create sequence fornecedor_seq;
 
 create sequence produto_seq;
 
-alter table produto add constraint fk_produto_fornecedor_1 foreign key (fornecedor_codigo) references fornecedor (codigo);
-create index ix_produto_fornecedor_1 on produto (fornecedor_codigo);
-alter table produto add constraint fk_produto_categoria1_2 foreign key (categoria1_codigo) references categoria (codigo);
-create index ix_produto_categoria1_2 on produto (categoria1_codigo);
-alter table produto add constraint fk_produto_categoria2_3 foreign key (categoria2_codigo) references categoria (codigo);
-create index ix_produto_categoria2_3 on produto (categoria2_codigo);
+alter table cliente add constraint fk_cliente_endereco_1 foreign key (endereco_codigo) references endereco (codigo);
+create index ix_cliente_endereco_1 on cliente (endereco_codigo);
+alter table produto add constraint fk_produto_fornecedor_2 foreign key (fornecedor_codigo) references fornecedor (codigo);
+create index ix_produto_fornecedor_2 on produto (fornecedor_codigo);
+alter table produto add constraint fk_produto_categoria1_3 foreign key (categoria1_codigo) references categoria (codigo);
+create index ix_produto_categoria1_3 on produto (categoria1_codigo);
+alter table produto add constraint fk_produto_categoria2_4 foreign key (categoria2_codigo) references categoria (codigo);
+create index ix_produto_categoria2_4 on produto (categoria2_codigo);
 
 
 
@@ -115,8 +99,6 @@ drop table if exists cliente cascade;
 
 drop table if exists endereco cascade;
 
-drop table if exists fabricante cascade;
-
 drop table if exists fornecedor cascade;
 
 drop table if exists produto cascade;
@@ -126,8 +108,6 @@ drop sequence if exists categoria_seq;
 drop sequence if exists cliente_seq;
 
 drop sequence if exists endereco_seq;
-
-drop sequence if exists fabricante_seq;
 
 drop sequence if exists fornecedor_seq;
 
